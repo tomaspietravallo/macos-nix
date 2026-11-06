@@ -11,6 +11,7 @@
     pre-commit
     rclone
     rsync
+    awscli2
   ];
 
   homebrew.casks = [
