@@ -1,0 +1,23 @@
+fail_fast: true
+
+repos:
+  - repo: local
+    hooks:
+      - id: update-flake-lock
+        name: Update flake inputs
+        entry: nix flake update
+        language: system
+        pass_filenames: false
+        always_run: true
+      - id: check-flake
+        name: Check flake configuration
+        entry: nix flake check --no-build --no-update-lock-file
+        language: system
+        pass_filenames: false
+        always_run: true
+      - id: build-darwin
+        name: Build Darwin configuration
+        entry: nix build .#darwinConfigurations.Tomass-MacBook-Pro.system --no-link --no-update-lock-file
+        language: system
+        pass_filenames: false
+        always_run: true

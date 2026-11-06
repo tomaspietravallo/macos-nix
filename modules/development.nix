@@ -8,6 +8,7 @@
     vim
     curl
     wget
+    pre-commit
   ];
 
   homebrew.casks = [
