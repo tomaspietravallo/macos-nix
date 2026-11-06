@@ -1,5 +1,9 @@
 # macOS configuration
 
+Inspired by https://carette.xyz/posts/going_immutable_macos/
+
+---
+
 Apply the configuration from this directory:
 
 ```sh
@@ -30,4 +34,3 @@ git add flake.lock
 git commit -m "Describe the change"
 ```
 
-The hooks never stage changes automatically.
