@@ -16,6 +16,8 @@ let
   };
 in
 {
+  system.defaults.hitoolbox.AppleFnUsageType = "Change Input Source";
+
   launchd.user.agents.enable-latin-american-keyboard.serviceConfig = {
     ProgramArguments = [ "${enableLatinAmerican}/bin/enable-latin-american-keyboard" ];
     RunAtLoad = true;
