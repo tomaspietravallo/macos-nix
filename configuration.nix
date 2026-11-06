@@ -1,17 +1,11 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
-  # Mac architecture
-  nixpkgs.hostPlatform = "aarch64-darwin";
-
-  # Packages available system-wide
-  environment.systemPackages = with pkgs; [
-    git
-    vim
-    curl
-    wget
+  imports = [
+    ./modules/development.nix
   ];
 
-  # Used for backwards compatibility
+  nixpkgs.hostPlatform = "aarch64-darwin";
+
   system.stateVersion = 6;
 }
