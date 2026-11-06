@@ -6,6 +6,7 @@
   environment.systemPackages = with pkgs; [
     git
     gh
+    lazygit
     vim
     curl
     wget
