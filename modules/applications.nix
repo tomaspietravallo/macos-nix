@@ -2,6 +2,7 @@
 
 {
   homebrew.masApps = {
+    Amphetamine = 937984704;
     WireGuard = 1451685025;
   };
 
