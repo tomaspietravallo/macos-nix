@@ -4,6 +4,7 @@
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   environment.systemPackages = with pkgs; [
+    nodejs_26
     git
     gh
     lazygit
