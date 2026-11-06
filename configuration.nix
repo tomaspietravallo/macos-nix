@@ -10,5 +10,7 @@
 
   system.primaryUser = "tomaspietravallo";
 
+  homebrew.enable = true;
+
   system.stateVersion = 6;
 }
