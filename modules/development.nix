@@ -15,6 +15,14 @@
     google-cloud-sdk
   ];
 
+  homebrew.taps = [
+    "hashicorp/tap"
+  ];
+
+  homebrew.brews = [
+    "hashicorp/tap/terraform"
+  ];
+
   homebrew.casks = [
     "codex"
     "claude-code"
