@@ -19,6 +19,7 @@
 
   homebrew.taps = [
     "hashicorp/tap"
+    "stablyai/orca"
   ];
 
   homebrew.brews = [
@@ -26,6 +27,7 @@
   ];
 
   homebrew.casks = [
+    "stablyai/orca/orca"
     "docker-desktop"
     "visual-studio-code"
     "codex"
