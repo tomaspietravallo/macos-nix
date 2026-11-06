@@ -26,6 +26,7 @@
   ];
 
   homebrew.casks = [
+    "visual-studio-code"
     "codex"
     "claude-code"
   ];
