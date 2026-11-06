@@ -10,5 +10,9 @@
     wget
   ];
 
+  homebrew.casks = [
+    "codex"
+  ];
+
   system.stateVersion = 6;
 }
