@@ -26,6 +26,7 @@
   ];
 
   homebrew.casks = [
+    "docker-desktop"
     "visual-studio-code"
     "codex"
     "codex-app"
