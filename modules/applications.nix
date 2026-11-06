@@ -13,5 +13,6 @@
     "raycast"
     "google-chrome"
     "adobe-creative-cloud"
+    "ghostty"
   ];
 }
