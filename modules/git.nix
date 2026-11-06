@@ -11,6 +11,7 @@ let
     pinentry-program ${pkgs.pinentry_mac}/bin/pinentry-mac
   '';
   gitConfig = {
+    "core.editor" = "/run/current-system/sw/bin/vim";
     "user.name" = "Tomás Pietravallo";
     "user.email" = "hello@tomaspietravallo.com";
     "user.signingkey" = fingerprint;
