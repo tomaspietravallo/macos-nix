@@ -15,6 +15,8 @@
 
   system.primaryUser = "tomaspietravallo";
 
+  security.pam.services.sudo_local.touchIdAuth = true;
+
   nix.package = pkgs.lixPackageSets.stable.lix;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
