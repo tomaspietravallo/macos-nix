@@ -28,6 +28,7 @@
   homebrew.casks = [
     "visual-studio-code"
     "codex"
+    "codex-app"
     "claude-code"
   ];
 
