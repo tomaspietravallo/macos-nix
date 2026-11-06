@@ -12,6 +12,7 @@
     rclone
     rsync
     awscli2
+    google-cloud-sdk
   ];
 
   homebrew.casks = [
