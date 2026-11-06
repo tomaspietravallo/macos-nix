@@ -9,6 +9,8 @@
     curl
     wget
     pre-commit
+    rclone
+    rsync
   ];
 
   homebrew.casks = [
