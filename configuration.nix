@@ -3,6 +3,7 @@
 {
   imports = [
     ./modules/development.nix
+    ./modules/applications.nix
   ];
 
   nixpkgs.hostPlatform = "aarch64-darwin";
