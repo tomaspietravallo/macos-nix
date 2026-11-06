@@ -5,6 +5,7 @@
     ./modules/development.nix
     ./modules/applications.nix
     ./modules/privacy.nix
+    ./modules/git.nix
     ./macos-nix-secrets
   ];
 
