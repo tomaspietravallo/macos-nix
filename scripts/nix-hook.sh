@@ -1,15 +1,19 @@
 set -euo pipefail
 
+repo="$(git rev-parse --show-toplevel)"
+git_hook_index="${GIT_INDEX_FILE:-$(git rev-parse --git-path index)}"
 while IFS= read -r git_env; do
   unset "$git_env"
 done < <(git rev-parse --local-env-vars)
-repo="$(git rev-parse --show-toplevel)"
 cd "$repo"
-snapshot="$(mktemp -d)"
-trap 'rm -rf "$snapshot"' EXIT
+temporary="$(mktemp -d)"
+trap 'rm -rf "$temporary"' EXIT
+snapshot="$temporary/source"
+mkdir -p "$snapshot"
+cp "$git_hook_index" "$temporary/index"
 
-git archive "$(git write-tree)" | tar -xf - -C "$snapshot"
-revision="$(git ls-files --stage -- macos-nix-secrets | awk '$1 == 160000 {print $2}')"
+git archive "$(GIT_INDEX_FILE="$temporary/index" git write-tree)" | tar -xf - -C "$snapshot"
+revision="$(GIT_INDEX_FILE="$temporary/index" git ls-files --stage -- macos-nix-secrets | awk '$1 == 160000 {print $2}')"
 if [[ -z "$revision" ]]; then
   printf 'The secrets submodule must be staged before checking the configuration.\n' >&2
   exit 1
