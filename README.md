@@ -1,36 +1,7 @@
 # macOS configuration
 
-Inspired by https://carette.xyz/posts/going_immutable_macos/
+> Inspired by https://carette.xyz/posts/going_immutable_macos/
 
----
+This repo publicly tracks my personal nix setup. This project is both a way for me to explore and get more familiarity with Nix (by forcing me to use it constantly), and a way to showcase some cool apps I like for macOS:
 
-Apply the configuration from this directory:
-
-```sh
-sudo -H darwin-rebuild switch --flake .#Tomass-MacBook-Pro
-```
-
-## Commit checks
-
-The Darwin configuration installs `pre-commit` through Nix. After applying it,
-enable the hooks in each new clone:
-
-```sh
-pre-commit install
-pre-commit run --all-files
-```
-
-Every commit refreshes all flake inputs, checks the flake, and builds the Darwin
-system without activating it. Updating inputs requires network access; builds
-may download packages and take time. Homebrew installations and macOS activation
-are only checked when you apply the configuration.
-
-If the update changes `flake.lock`, pre-commit stops the commit so you can review
-the dependency changes, stage the lockfile, and retry:
-
-```sh
-git diff -- flake.lock
-git add flake.lock
-git commit -m "Describe the change"
-```
-
+Some cool apps I like for macOS include: [Amphetamine](https://apps.apple.com/us/app/amphetamine/id937984704?mt=12), [Kaset](https://github.com/sozercan/kaset), [Raycast](https://www.raycast.com/), [and others](./modules/applications.nix)!
