@@ -1,0 +1,4 @@
+prefix = ${HOME}/.npm-global
+ignore-scripts = true
+save-exact = true
+strict-ssl = true

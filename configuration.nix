@@ -6,6 +6,7 @@
     ./modules/applications.nix
     ./modules/privacy.nix
     ./modules/git.nix
+    ./modules/npm.nix
     ./modules/raycast.nix
     ./macos-nix-secrets
   ];
