@@ -1,4 +1,6 @@
 fail_fast: true
+default_install_hook_types: [pre-commit, pre-push]
+default_stages: [pre-commit]
 
 repos:
   - repo: local
@@ -19,5 +21,13 @@ repos:
         name: Build Darwin configuration
         entry: bash scripts/nix-hook.sh build
         language: system
+        pass_filenames: false
+        always_run: true
+      - id: switch-darwin
+        name: Apply Darwin configuration
+        entry: >-
+          bash -c 'set -euo pipefail; while IFS= read -r git_env; do unset "$git_env"; done < <(git rev-parse --local-env-vars); exec sudo -H darwin-rebuild switch --flake ".?submodules=1#Tomass-MacBook-Pro"'
+        language: system
+        stages: [pre-push]
         pass_filenames: false
         always_run: true
