@@ -12,5 +12,6 @@
   homebrew.casks = [
     "raycast"
     "google-chrome"
+    "adobe-creative-cloud"
   ];
 }
