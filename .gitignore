@@ -1,0 +1,4 @@
+*.conf
+keys.txt
+*.agekey
+secrets/*.plain.*

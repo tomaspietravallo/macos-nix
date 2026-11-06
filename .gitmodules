@@ -1,0 +1,3 @@
+[submodule "macos-nix-secrets"]
+	path = macos-nix-secrets
+	url = ../macos-nix-secrets.git

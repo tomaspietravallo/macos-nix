@@ -5,19 +5,19 @@ repos:
     hooks:
       - id: update-flake-lock
         name: Update flake inputs
-        entry: nix flake update
+        entry: nix flake update --flake .?submodules=1
         language: system
         pass_filenames: false
         always_run: true
       - id: check-flake
         name: Check flake configuration
-        entry: nix flake check --no-build --no-update-lock-file
+        entry: nix flake check .?submodules=1 --no-build --no-update-lock-file
         language: system
         pass_filenames: false
         always_run: true
       - id: build-darwin
         name: Build Darwin configuration
-        entry: nix build .#darwinConfigurations.Tomass-MacBook-Pro.system --no-link --no-update-lock-file
+        entry: nix build .?submodules=1#darwinConfigurations.Tomass-MacBook-Pro.system --no-link --no-update-lock-file
         language: system
         pass_filenames: false
         always_run: true
