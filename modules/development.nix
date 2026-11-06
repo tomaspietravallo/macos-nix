@@ -12,6 +12,7 @@
 
   homebrew.casks = [
     "codex"
+    "claude-code"
   ];
 
   system.stateVersion = 6;
