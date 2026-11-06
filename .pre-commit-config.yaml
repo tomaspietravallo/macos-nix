@@ -5,19 +5,19 @@ repos:
     hooks:
       - id: update-flake-lock
         name: Update flake inputs
-        entry: nix flake update --flake .?submodules=1
+        entry: bash scripts/nix-hook.sh update
         language: system
         pass_filenames: false
         always_run: true
       - id: check-flake
         name: Check flake configuration
-        entry: nix flake check .?submodules=1 --no-build --no-update-lock-file
+        entry: bash scripts/nix-hook.sh check
         language: system
         pass_filenames: false
         always_run: true
       - id: build-darwin
         name: Build Darwin configuration
-        entry: nix build .?submodules=1#darwinConfigurations.Tomass-MacBook-Pro.system --no-link --no-update-lock-file
+        entry: bash scripts/nix-hook.sh build
         language: system
         pass_filenames: false
         always_run: true
