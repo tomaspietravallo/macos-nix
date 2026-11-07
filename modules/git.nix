@@ -26,6 +26,8 @@ in
 
   system.activationScripts.postActivation.text = lib.mkAfter ''
     /usr/bin/install -d -m 0700 -o ${lib.escapeShellArg user} -g staff ${lib.escapeShellArg "${home}/.gnupg"}
+    /usr/bin/install -d -m 0755 -o ${lib.escapeShellArg user} -g staff ${lib.escapeShellArg "${home}/Library/Application Support/lazygit"}
+    /usr/bin/install -m 0644 -o ${lib.escapeShellArg user} -g staff ${../lazygit/config.yml} ${lib.escapeShellArg "${home}/Library/Application Support/lazygit/config.yml"}
     /usr/bin/install -m 0600 -o ${lib.escapeShellArg user} -g staff ${gpgConfig} ${lib.escapeShellArg "${home}/.gnupg/gpg.conf"}
     /usr/bin/install -m 0600 -o ${lib.escapeShellArg user} -g staff ${agentConfig} ${lib.escapeShellArg "${home}/.gnupg/gpg-agent.conf"}
     ${lib.concatStringsSep "\n" (lib.mapAttrsToList (name: value: ''
