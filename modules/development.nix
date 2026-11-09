@@ -5,6 +5,7 @@
 
   environment.systemPackages = with pkgs; [
     nodejs_26
+    jdk25
     git
     gh
     lazygit
