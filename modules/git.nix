@@ -23,6 +23,7 @@ let
 in
 {
   environment.systemPackages = [ pkgs.gnupg pkgs.pinentry_mac ];
+  environment.etc."gitconfig-chyps".source = ../git/chyps.gitconfig;
 
   system.activationScripts.postActivation.text = lib.mkAfter ''
     /usr/bin/install -d -m 0700 -o ${lib.escapeShellArg user} -g staff ${lib.escapeShellArg "${home}/.gnupg"}
@@ -33,6 +34,8 @@ in
     ${lib.concatStringsSep "\n" (lib.mapAttrsToList (name: value: ''
       /usr/bin/sudo -H -u ${lib.escapeShellArg user} ${pkgs.git}/bin/git config --global ${lib.escapeShellArg name} ${lib.escapeShellArg value}
     '') gitConfig)}
+    /usr/bin/sudo -H -u ${lib.escapeShellArg user} ${pkgs.git}/bin/git config --global --unset-all 'includeIf.worktree:~/CHYPS/.path' || true
+    /usr/bin/sudo -H -u ${lib.escapeShellArg user} ${pkgs.git}/bin/git config --global --add 'includeIf.worktree:~/CHYPS/.path' /etc/gitconfig-chyps
     /usr/bin/sudo -H -u ${lib.escapeShellArg user} ${pkgs.gnupg}/bin/gpgconf --reload gpg-agent
   '';
 }
