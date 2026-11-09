@@ -14,6 +14,13 @@
   ];
 
   nixpkgs.hostPlatform = "aarch64-darwin";
+  nixpkgs.overlays = [
+    (_: prev: {
+      pre-commit = prev.pre-commit.override {
+        dotnetCorePackages = { sdk_8_0-source = { meta.platforms = [ ]; }; };
+      };
+    })
+  ];
 
   system.primaryUser = "tomaspietravallo";
 
